@@ -1,0 +1,61 @@
+<!-- {{valores|json}} -->
+<form (ngSubmit)="onSubmit()" #valoresForm="ngForm">
+
+    <div class="form-group">
+        <label for="idExamen">ID Examen</label>
+        <input type="text" class="form-control" id="idExamen"
+               required
+               [(ngModel)]="valores.idExamen" 
+               name="idExamen">
+    </div>
+  
+    <div class="form-group">
+      <label for="idSexo">Sexo</label>
+      <select class="form-control"  id="idSexo"
+              required
+              [(ngModel)]="valores.idSexo" name="idSexo">
+        <option *ngFor="let ids of sexos" [value]="ids.idSexo">{{ids.descripcion}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label for="rangoAlto">Rango Alto</label>
+        <input type="text" class="form-control" id="rangoAlto"
+               required
+               [(ngModel)]="valores.rangoAlto" 
+               name="rangoAlto">
+    </div>
+
+    <div class="form-group">
+        <label for="rangoBajo">Rango Bajo</label>
+        <input type="text" class="form-control" id="rangoBajo"
+               required
+               [(ngModel)]="valores.rangoBajo" 
+               name="rangoBajo">
+    </div>
+        
+    <div class="form-group">
+          <label for="estado">Estado</label>
+          <input type="text" class="form-control" id="estado"
+                  required
+                  [(ngModel)]="valores.estado"
+                  name="estado">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="!valoresForm.form.valid">Submit</button>
+    <br>
+    </form>
+        <!-- <div class="form-group">
+          <label for="alterEgo">Alter Ego</label>
+          <input type="text"  class="form-control" id="alterEgo" required
+                 [(ngModel)]="examenes.descripcion" name="alterEgo">
+        </div> -->
+        
+        <!-- <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control"  id="power"
+                  required
+                  [(ngModel)]="model.power" name="power">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+        </div> -->

@@ -1,0 +1,23 @@
+<h2>Pais</h2>
+<hr>
+<div class="row">
+  <div class="col text-center">
+    <!-- SEARCH BOX-->
+    <shared-search-box *ngIf="selectedFuncion==='Buscar'" placeholder="Buscar por ID" (onValue)="searchPaisById($event)"></shared-search-box>
+    <br>
+    <button class="btn mx-2" [ngClass]="{'btn-outline-primary':selectedFuncion===funcion}"
+    *ngFor="let funcion of funciones" (click)="selectFuncion(funcion)">{{funcion}}</button>
+    <hr>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- Table Countries-->
+    <pais-table *ngIf="selectedFuncion=='Buscar'" [paises]="paises"(updateEvent)="updatePais($event)" (deleteEvent)="deletePais($event)"></pais-table>
+  </div>
+</div>
+<div >
+  <pais-form *ngIf="selectedFuncion==='Guardar'"  (messageEvent)="addPais($event)"></pais-form>
+  <!-- <pais-form *ngIf="selectedFuncion==='Editar'" [paisRecibido]="p" (updateEvent)="updatePais2($event)" ></pais-form> -->
+</div>

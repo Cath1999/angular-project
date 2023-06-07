@@ -1,0 +1,25 @@
+<h2>Examenes</h2>
+
+<hr>
+<div class="row">
+  <div class="col text-center">
+    <!-- SEARCH BOX-->
+    
+    <shared-search-box *ngIf="selectedFuncion==='Buscar'" placeholder="Buscar por ID" (onValue)="searchExamenesById($event)"></shared-search-box>
+    <br>
+    <button class="btn mx-2" [ngClass]="{'btn-outline-primary':selectedFuncion===funcion}"
+    *ngFor="let funcion of funciones" (click)="selectFuncion(funcion)">{{funcion}}</button>
+    <hr>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- Table Countries-->
+    <examenes-table *ngIf="selectedFuncion=='Buscar'" [examenes]="examenes" (updateEvent)="updateExamenes($event)" (deleteEvent)="deleteExamenes($event)"></examenes-table>
+  </div>
+</div>
+<div >
+  <examenes-form *ngIf="selectedFuncion==='Agregar'"  (messageEvent)="addExamenes($event)"></examenes-form>
+  <examenes-form *ngIf="selectedFuncion==='Editar'" [examenesRecibida]="e" (updateEvent)="updateExamenes2($event)" ></examenes-form>
+</div>

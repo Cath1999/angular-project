@@ -1,0 +1,26 @@
+<h2>Tipo de muestra</h2>
+<hr>
+<div class="row">
+  <div class="col text-center">
+    <!-- SEARCH BOX-->
+    <shared-search-box *ngIf="selectedFuncion==='Buscar'" placeholder="Buscar por ID" (onValue)="searchPacienteById($event)"></shared-search-box>
+    <br>
+    <button class="btn mx-2" [ngClass]="{'btn-outline-primary':selectedFuncion===funcion}"
+    *ngFor="let funcion of funciones" (click)="selectFuncion(funcion)">{{funcion}}</button>
+    <hr>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- Table Countries-->
+   
+    <paciente-table *ngIf="selectedFuncion=='Buscar'" [pacientes]="pacientes" (updateEvent)="fillForm($event)" (deleteEvent)="deletePaciente($event)"></paciente-table>
+  </div>
+</div>
+<div >
+
+  <paciente-form *ngIf="selectedFuncion==='Guardar'"  (messageEvent)="addPaciente($event)"></paciente-form>
+  <paciente-form *ngIf="selectedFuncion==='Editar'" [pacienteRecibido]="p" (updateEvent)="updatePaciente($event)" ></paciente-form>
+
+</div>

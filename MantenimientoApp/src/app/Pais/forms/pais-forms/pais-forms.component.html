@@ -1,0 +1,34 @@
+
+<!-- {{muestras|json}} -->
+<form (ngSubmit)="onSubmit()" #paisForm="ngForm">
+  <div class="form-group">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion"
+             required
+             [(ngModel)]="pais.descripcion" value="test"
+             name="descripcion">
+  </div>
+
+  <div class="form-group">
+      <label for="estado">Estado</label>
+      <input type="text" class="form-control" id="estado"
+              required
+              [(ngModel)]="pais.estado"
+              name="estado">
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!paisForm.form.valid">Submit</button>
+  </form>
+    <!-- <div class="form-group">
+      <label for="alterEgo">Alter Ego</label>
+      <input type="text"  class="form-control" id="alterEgo" required
+             [(ngModel)]="muestras.descripcion" name="alterEgo">
+    </div> -->
+
+    <!-- <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select class="form-control"  id="power"
+              required
+              [(ngModel)]="model.power" name="power">
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+    </div> -->

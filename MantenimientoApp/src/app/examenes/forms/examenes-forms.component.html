@@ -1,0 +1,131 @@
+<!-- {{examenes|json}} -->
+<form (ngSubmit)="onSubmit()" #examenesForm="ngForm">
+
+  <div class="form-group">
+    <label for="idAreaLabServicio">Área de Laboratorio</label>
+    <select class="form-control"  id="idAreaLabServicio"
+            required
+            [(ngModel)]="examenes.idAreaLabServicio" name="idAreaLabServicio">
+      <option *ngFor="let ids of areas" [value]="ids.idAreaLabServicio">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idMetodologia">Metodología</label>
+    <select class="form-control"  id="idMetodologia"
+            required
+            [(ngModel)]="examenes.idMetodologia" name="idMetodologia">
+      <option *ngFor="let ids of metodologias" [value]="ids.idMetodologia">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="idCategoriaExamenes">Categoría de examen</label>
+    <select class="form-control"  id="idCategoriaExamenes"
+            required
+            [(ngModel)]="examenes.idCategoriaExamenes" name="idCategoriaExamenes">
+      <option *ngFor="let ids of categorias" [value]="ids.idCategoriaExamenes">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idTipoMuestra">Tipo de muestra</label>
+    <select class="form-control"  id="idTipoMuestra"
+            required
+            [(ngModel)]="examenes.idTipoMuestra" name="idTipoMuestra">
+      <option *ngFor="let ids of muestras" [value]="ids.idTipoMuestra">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idUnidadMedidas">Unidad de medida</label>
+    <select class="form-control"  id="idUnidadMedidas"
+            required
+            [(ngModel)]="examenes.idUnidadMedidas" name="idUnidadMedidas">
+      <option *ngFor="let ids of medidas" [value]="ids.idUnidadMedidas">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idTipoResultado">Tipo de resultado</label>
+    <select class="form-control"  id="idTipoResultado"
+            required
+            [(ngModel)]="examenes.idTipoResultado" name="idTipoResultado">
+      <option *ngFor="let ids of resultados" [value]="ids.idTipoResultado">{{ids.descripcion}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <input type="text" class="form-control" id="descripcion"
+             required
+             [(ngModel)]="examenes.descripcion" 
+             name="descripcion">
+  </div>
+
+  <div class="form-group">
+      <label for="descripcionCorta">Descripción corta</label>
+      <input type="text" class="form-control" id="descripcionCorta"
+             required
+             [(ngModel)]="examenes.descripcionCorta" 
+             name="descripcionCorta">
+  </div>
+
+  <div class="form-group">
+      <label for="descripcion">lisCode</label>
+      <input type="text" class="form-control" id="lisCode"
+             required
+             [(ngModel)]="examenes.lisCode" value="test"
+             name="lisCode">
+  </div>
+
+  <div class="form-group">
+      <label for="descripcion">Conteo</label>
+      <input type="text" class="form-control" id="conteo"
+             required
+             [(ngModel)]="examenes.conteo" value="test"
+             name="conteo">
+  </div>
+
+  <div class="form-group">
+      <label for="descripcion">Confidencial</label>
+      <input type="text" class="form-control" id="confidencial"
+             required
+             [(ngModel)]="examenes.confidencial" value="test"
+             name="confidencial">
+  </div>
+
+  <div class="form-group">
+      <label for="calculado">Calculado</label>
+      <input type="text" class="form-control" id="calculado"
+             required
+             [(ngModel)]="examenes.calculado" value="test"
+             name="calculado">
+  </div>
+      
+  <div class="form-group">
+        <label for="estado">Estado</label>
+        <input type="text" class="form-control" id="estado"
+                required
+                [(ngModel)]="examenes.estado"
+                name="estado">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success" [disabled]="!examenesForm.form.valid">Submit</button>
+  <br>
+  </form>
+      <!-- <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text"  class="form-control" id="alterEgo" required
+               [(ngModel)]="examenes.descripcion" name="alterEgo">
+      </div> -->
+      
+      <!-- <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control"  id="power"
+                required
+                [(ngModel)]="model.power" name="power">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+      </div> -->

@@ -1,0 +1,26 @@
+<div *ngIf="muestras.length === 0; else table" class="alert alert-warning">
+    No hay muestras
+</div>
+
+<ng-template #table>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Descripcion</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let muestra of muestras; let i = index">
+            <td>{{ i +1}}</td>
+            <td>{{muestra.idTipoMuestra}}</td>
+            
+            <td>{{muestra.descripcion}}</td>
+            <td>{{muestra.estado}}</td>
+          </tr>
+        </tbody>
+      
+      </table>
+</ng-template>

@@ -1,0 +1,23 @@
+<h2>Tipo de muestra</h2>
+<hr>
+<div class="row">
+  <div class="col text-center">
+    <!-- SEARCH BOX-->
+    <shared-search-box *ngIf="selectedFuncion==='Buscar'" placeholder="Buscar por ID" (onValue)="searchMuestraById($event)"></shared-search-box>
+    <br>
+    <button class="btn mx-2" [ngClass]="{'btn-outline-primary':selectedFuncion===funcion}"
+    *ngFor="let funcion of funciones" (click)="selectFuncion(funcion)">{{funcion}}</button>
+    <hr>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- Table Countries-->
+    <muestra-table *ngIf="selectedFuncion=='Buscar'" [muestras]="muestras" (updateEvent)="updateMuestra($event)" (deleteEvent)="deleteMuestra($event)"></muestra-table>
+  </div>
+</div>
+<div >
+  <muestra-form *ngIf="selectedFuncion==='Guardar'"  (messageEvent)="addMuestra($event)"></muestra-form>
+  <muestra-form *ngIf="selectedFuncion==='Editar'" [muestraRecibida]="m" (updateEvent)="updateMuestra2($event)" ></muestra-form>
+</div>

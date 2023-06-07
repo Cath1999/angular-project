@@ -1,0 +1,250 @@
+<!-- {{muestras|json}} -->
+<form (ngSubmit)="onSubmit()" #pacienteForm="ngForm">
+
+    <div class="form-group">
+        <label for="idIdentificacion">Identificacion</label>
+        <select class="form-control"  id="idIdentificacion"
+                required
+                [(ngModel)]="paciente.idIdentificacion" name="idIdentificacion">
+          <option *ngFor="let ids of identificaciones" [value]="ids.idIdentificacion">{{ids.descripcion}}</option>
+        </select>
+      </div>
+    <div class="form-group">
+        <label for="numIdentificacion">Numero Identificacion</label>
+        <input type="text" class="form-control" id="numIdentificacion"
+               required
+               [(ngModel)]="paciente.numIdentificacion"
+               name="numIdentificacion">
+    </div>
+      
+    <div class="form-group">
+        <label for="numExpediente">Numero Expediente</label>
+        <input type="text" class="form-control" id="numExpediente"
+                required
+                [(ngModel)]="paciente.numExpediente"
+                name="numExpediente">
+    </div>
+
+    <div class="form-group">
+        <label for="numINSS">Numero INSS</label>
+        <input type="text" class="form-control" id="numINSS"
+                required
+                [(ngModel)]="paciente.numINSS"
+                name="numINSS">
+    </div>
+
+    <div class="form-group">
+        <label for="idEstadoCivil">Estado Civil</label>
+        <select class="form-control"  id="idEstadoCivil"
+                required
+                [(ngModel)]="paciente.idEstadoCivil" name="idEstadoCivil">
+          <option *ngFor="let ids of estadociviles" [value]="ids.idEstadoCivil">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+                required
+                [(ngModel)]="paciente.email"
+                name="email">
+    </div>
+
+    <div class="form-group">
+        <label for="idSexo">Sexo</label>
+        <select class="form-control"  id="idSexo"
+                required
+                [(ngModel)]="paciente.idSexo" name="idSexo">
+          <option *ngFor="let ids of sexos" [value]="ids.idSexo">{{ids.descripcion}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="idNacionalidad">Nacionalidad</label>
+        <select class="form-control"  id="idNacionalidad"
+                required
+                [(ngModel)]="paciente.idNacionalidad" name="idNacionalidad">
+          <option *ngFor="let ids of nacionalidades" [value]="ids.idNacionalidad">{{ids.descripcion}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="idPaisNac">Pais de Nacimiento</label>
+        <select class="form-control"  id="idPaisNac"
+                required
+                [(ngModel)]="paciente.idPaisNac" name="idPaisNac">
+            <option *ngFor="let ids of paises" [value]="ids.idPais">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idDepartamentoNac">Departamento de Nacimiento</label>
+        <select class="form-control"  id="idDepartamentoNac"
+                required
+                [(ngModel)]="paciente.idDepartamentoNac" name="idDepartamentoNac">
+          <option *ngFor="let ids of departamentos" [value]="ids.idDepartamento">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idMunicipioNac">Municipio de Nacimiento</label>
+        <select class="form-control"  id="idMunicipioNac"
+                required
+                [(ngModel)]="paciente.idMunicipioNac" name="idMunicipioNac">
+          <option *ngFor="let ids of municipios" [value]="ids.idMunicipio">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idPaisRes">Pais de Residencia</label>
+        <select class="form-control"  id="idPaisRes"
+                required
+                [(ngModel)]="paciente.idPaisRes" name="idPaisRes">
+            <option *ngFor="let ids of paises" [value]="ids.idPais">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idDepartamentoRes">Departamento de Residencia</label>
+        <select class="form-control"  id="idDepartamentoRes"
+                required
+                [(ngModel)]="paciente.idDepartamentoRes" name="idDepartamentoRes">
+          <option *ngFor="let ids of departamentos" [value]="ids.idDepartamento">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idMunicipioRes">Municipio de Residencia</label>
+        <select class="form-control"  id="idMunicipioRes"
+                required
+                [(ngModel)]="paciente.idMunicipioRes" name="idMunicipioRes">
+          <option *ngFor="let ids of municipios" [value]="ids.idMunicipio">{{ids.descripcion}}</option>
+        </select>
+    </div>
+
+      <div class="form-group">
+        <label for="idTipoSangre">Tipo de Sangre</label>
+        <select class="form-control"  id="idTipoSangre"
+                required
+                [(ngModel)]="paciente.idTipoSangre" name="idTipoSangre">
+          <option *ngFor="let ids of sangres" [value]="ids.idTipoSangre">{{ids.descripcion}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="idProfesiones">Profesion</label>
+        <select class="form-control"  id="idProfesiones"
+                required
+                [(ngModel)]="paciente.idProfesiones" name="idProfesiones">
+          <option *ngFor="let ids of profesiones" [value]="ids.idProfesiones">{{ids.descripcion}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="idReligion">Religion</label>
+        <select class="form-control"  id="idReligion"
+                required
+                [(ngModel)]="paciente.idReligion" name="idReligion">
+          <option *ngFor="let ids of religiones" [value]="ids.idReligion">{{ids.descripcion}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="primerNombre">Primer Nombre</label>
+        <input type="text" class="form-control" id="primerNombre"
+                required
+                [(ngModel)]="paciente.primerNombre"
+                name="primerNombre">
+    </div>
+
+    <div class="form-group">
+        <label for="segundoNombre">Segundo Nombre</label>
+        <input type="text" class="form-control" id="segundoNombre"
+                required
+                [(ngModel)]="paciente.segundoNombre"
+                name="segundoNombre">
+    </div>
+
+    <div class="form-group">
+        <label for="primerApellido">Primer Apellido</label>
+        <input type="text" class="form-control" id="primerApellido"
+                required
+                [(ngModel)]="paciente.primerApellido"
+                name="primerApellido">
+    </div>
+
+    <div class="form-group">
+        <label for="segundoApellido">Segundo Apellido</label>
+        <input type="text" class="form-control" id="segundoApellido"
+                required
+                [(ngModel)]="paciente.segundoApellido"
+                name="segundoApellido">
+    </div>
+
+    <div class="form-group">
+        <label for="fechaNac">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaNac"
+                required
+                [(ngModel)]="paciente.fechaNac"
+                name="fechaNac">
+    </div>
+
+    <div class="form-group">
+        <label for="direccionDomiciliar">Dirección</label>
+        <input type="text" class="form-control" id="direccionDomiciliar"
+                required
+                [(ngModel)]="paciente.direccionDomiciliar"
+                name="direccionDomiciliar">
+    </div>
+
+    <div class="form-group">
+        <label for="telefonoDomiciiar">Telefono Domiciliar</label>
+        <input type="text" class="form-control" id="telefonoDomiciiar"
+                required
+                [(ngModel)]="paciente.telefonoDomiciiar"
+                name="telefonoDomiciiar">
+    </div>
+
+    <div class="form-group">
+        <label for="telefonoMovil">Telefono Movil</label>
+        <input type="text" class="form-control" id="telefonoMovil"
+                required
+                [(ngModel)]="paciente.telefonoMovil"
+                name="telefonoMovil">
+    </div>
+
+    <div class="form-group">
+        <label for="activo">Activo</label>
+        <input type="text" class="form-control" id="activo"
+                required
+                [(ngModel)]="paciente.activo"
+                name="activo">
+    </div>
+
+    <div class="form-group">
+        <label for="embarazada">Embarazada</label>
+        <input type="text" class="form-control" id="embarazada"
+                required
+                [(ngModel)]="paciente.embarazada"
+                name="embarazada">
+    </div>
+
+    <div class="form-group">
+        <label for="fallecido">Fallecido</label>
+        <input type="text" class="form-control" id="fallecido"
+                required
+                [(ngModel)]="paciente.fallecido"
+                name="fallecido">
+    </div>
+
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <input type="text" class="form-control" id="estado"
+                required
+                [(ngModel)]="paciente.estado"
+                name="estado">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!pacienteForm.form.valid">Submit</button>
+  </form>
+    
+      
+      
