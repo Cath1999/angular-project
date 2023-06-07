@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PorPaisPaginaComponent } from "./Pages/por-pais-pagina.component"
+import { Router, RouterModule, Routes } from '@angular/router';
+import { PaisComponent } from './pais.component';
 
 const routes: Routes=[
-
-  {
-    path:'por-pais',
-    component:PorPaisPaginaComponent
-  }
-
-
+    {
+        path:'by-pais',
+        component:PaisComponent
+    }
 ]
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ],
+    imports: [
+        RouterModule.forChild(routes)
+    ],
+    exports: [
+        RouterModule
+    ],
+
 })
 export class PaisRoutingModule { }

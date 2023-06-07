@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Pais} from "../../interface/pais";
-import { PaisService } from "../../services/pais.service";
+import { Pais } from "../interface/pais";
+import { PaisService } from "../services/pais.service";
 
 @Component({
     selector: 'pais-form',
@@ -13,10 +13,12 @@ export class PaisFormComponent{
     @Input()
     public paisRecibido?: Pais;
     public id?: number ;
+    public idPais?:number;
     public descripcion?: string ;
     public estado?: number
-    public pais: Pais = {
-        IdPais: this.id,
+    public paises: Pais = {
+
+        idPais: this.idPais,
         descripcion: this.descripcion,
         estado: this.estado
     };
@@ -24,26 +26,26 @@ export class PaisFormComponent{
     @Output() updateEvent  = new EventEmitter<any>();
 
     submitted = false;
-    constructor(private paisService:  PaisService){}
+    constructor(private paisService: PaisService){}
     ngOnInit(){
-        if (this.paisRecibido?.IdPais != undefined){
+        if (this.paisRecibido?.idPais != undefined){
             console.log('Entre');
-            this.pais.IdPais = this.paisRecibido.IdPais;
-            this.pais.descripcion = this.paisRecibido.descripcion;
-            this.pais.estado = this.paisRecibido.estado;
+            this.paises.idPais = this.paisRecibido.idPais;
+            this.paises.descripcion = this.paisRecibido.descripcion;
+            this.paises.estado = this.paisRecibido.estado;
         }
     }
      onSubmit() {
-        if (this.pais.IdPais == undefined){
-            // this.pais.descripcion = this.descripcion;
-            // this.pais.estado = this.estado;
+        if (this.paises.idPais == undefined){
+            // this.muestras.descripcion = this.descripcion;
+            // this.muestras.estado = this.estado;
             this.submitted = true;
             // console.log(this.submitted);
-            // console.log(this.pais);
-            this.messageEvent.emit(this.pais);
+            // console.log(this.muestras);
+            this.messageEvent.emit(this.paises);
         }else{
             this.submitted = true;
-            this.updateEvent.emit(this.pais)
+            this.updateEvent.emit(this.paises)
         }
 
 

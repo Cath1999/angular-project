@@ -1,11 +1,11 @@
-
 <!-- {{muestras|json}} -->
 <form (ngSubmit)="onSubmit()" #paisForm="ngForm">
+
   <div class="form-group">
       <label for="descripcion">Descripcion</label>
       <input type="text" class="form-control" id="descripcion"
              required
-             [(ngModel)]="pais.descripcion" value="test"
+             [(ngModel)]="paises.descripcion"
              name="descripcion">
   </div>
 
@@ -13,7 +13,7 @@
       <label for="estado">Estado</label>
       <input type="text" class="form-control" id="estado"
               required
-              [(ngModel)]="pais.estado"
+              [(ngModel)]="paises.estado"
               name="estado">
   </div>
   <button type="submit" class="btn btn-success" [disabled]="!paisForm.form.valid">Submit</button>

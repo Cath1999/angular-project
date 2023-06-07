@@ -14,10 +14,10 @@
 <div class="row">
   <div class="col">
     <!-- Table Countries-->
-    <pais-table *ngIf="selectedFuncion=='Buscar'" [paises]="paises"(updateEvent)="updatePais($event)" (deleteEvent)="deletePais($event)"></pais-table>
+    <pais-table *ngIf="selectedFuncion=='Buscar'" [paises]="paises" (updateEvent)="updatePais($event)" (deleteEvent)="deletePais($event)"></pais-table>
   </div>
 </div>
 <div >
   <pais-form *ngIf="selectedFuncion==='Guardar'"  (messageEvent)="addPais($event)"></pais-form>
-  <!-- <pais-form *ngIf="selectedFuncion==='Editar'" [paisRecibido]="p" (updateEvent)="updatePais2($event)" ></pais-form> -->
+  <pais-form *ngIf="selectedFuncion==='Editar'" [paisRecibido]="p" (updateEvent)="updatePais2($event)" ></pais-form>
 </div>

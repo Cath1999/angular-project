@@ -1,6 +1,5 @@
 export interface Pais {
-    IdPais?:number,
-    descripcion?:String
-    estado?: Number;
-
-  }
+  idPais?: number;
+  descripcion?: string;
+  estado?:number;
+}

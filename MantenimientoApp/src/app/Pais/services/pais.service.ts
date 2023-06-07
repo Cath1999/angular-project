@@ -1,59 +1,56 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Pais } from '../interface/pais';
-import { Observable, catchError, forkJoin, map, of, pipe } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, catchError, map, of, pipe } from "rxjs";
+import { Pais } from "../interface/pais";
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class PaisService {
+    private apiUrl:string = 'http://localhost:8088';
 
-  private apiUrlPais:string = 'http://localhost:8086';
+    constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) { }
+    private getPaisRequest(url: string): Observable<Pais[]>{
+        return this.http.get<Pais[]>(url)
+            .pipe(
+              catchError( () => of ([]))
+            );
+    }
 
-  private getPaisRequest(url: string): Observable<Pais[]>{
-      return this.http.get<Pais[]>(url)
-          .pipe(
-            catchError( () => of ([]))
-          );
-  }
 
-  searchPaisById(term:string): Observable<Pais| null>{
-    const url = `${this.apiUrlPais}/api/pais/paisById/${term}`;
-    return this.http.get<Pais>(url)
-    .pipe(
 
-        catchError( () => of(null))
-    );
-}
+    searchPais(term: string): Observable<Pais[]>{
+        const url = `${this.apiUrl}/api/pais`;
+        return this.getPaisRequest(url);
+    }
 
-  searchPais(term: string): Observable<Pais[]>{
-      const url = `${this.apiUrlPais}/api/pais`;
-      return this.getPaisRequest(url);
-  }
+    searchPaisById(term:string): Observable<Pais | null>{
+        const url = `${this.apiUrl}/api/pais/getById/${term}`;
+        return this.http.get<Pais>(url)
+        .pipe(
 
-  addPais(pais:Pais): Observable<any> {
-    const url = `${this.apiUrlPais}/api/pais/add`;
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(pais);
-    console.log(body)
-    return this.http.post(url, body,{'headers':headers})
-}
+            catchError( () => of(null))
+        );
+    }
 
-updatePais(pais: Pais): Observable<any>{
-    const url = `${this.apiUrlPais}/api/pais/updateById/${pais.IdPais}`;
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(pais);
-    console.log(body)
-    return this.http.put(url, body,{'headers':headers})
-}
+    addPais(pais:Pais): Observable<any> {
+        const url = `${this.apiUrl}/api/pais/add`;
+        const headers = { 'content-type': 'application/json'}
+        const body=JSON.stringify(pais);
+        console.log(body)
+        return this.http.post(url, body,{'headers':headers})
+    }
 
-deletePais(id:number): Observable<any>{
-    const headers = { 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'POST, PUT, PATCH, GET, DELETE, OPTIONS', 'Access-Control-Allow-Headers': '*'}
-    const url = `${this.apiUrlPais}/api/pais/deletePaisById/${id}`;
-    return this.http.delete(url)
+    updatePais(pais: Pais): Observable<any>{
+        const url = `${this.apiUrl}/api/pais/updateById/${pais.idPais}`;
+        const headers = { 'content-type': 'application/json'}
+        const body=JSON.stringify(pais);
+        console.log(body)
+        return this.http.put(url, body,{'headers':headers})
+    }
 
-}
+    deletePais(id:number): Observable<any>{
+        const url = `${this.apiUrl}/api/pais/deleteById/${id}`;
+        return this.http.delete(url)
+
+    }
 }

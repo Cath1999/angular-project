@@ -1,24 +1,20 @@
+import { Component } from '@angular/core';
+import { Pais } from './interface/pais';
+import { PaisService } from './services/pais.service';
 
-import { Component, Input } from '@angular/core';
-import { Pais } from '../../Pais/interface/pais';
-import { PaisService } from '../../Pais/services/pais.service';
-
-
-type Funciones = 'Buscar'|'Guardar'|'Listar'
+type Funciones = 'Buscar'|'Guardar'|'Editar'
 
 @Component({
-  selector: 'pais-por-pais-pagina',
-  templateUrl: './por-pais-pagina.component.html',
-  styles: []
+  selector: 'app-pais',
+  templateUrl: './pais.component.html',
+  styleUrls: [],
 })
-export class PorPaisPaginaComponent {
+export class PaisComponent {
   select: any;
   public p?:Pais;
   public paises: Pais[] = [];
-  public funciones: Funciones[] = ['Buscar', 'Guardar', 'Listar'];
+  public funciones: Funciones[] = ['Buscar', 'Guardar', 'Editar'];
   public selectedFuncion?: Funciones;
-  public selectedPais?: Pais;
-
   constructor(private paisService: PaisService){}
   ngOnInit(){
     this.selectedFuncion = this.funciones[0];
@@ -29,11 +25,12 @@ export class PorPaisPaginaComponent {
     });
 
   }
+
   refreshTable(){
     this.selectedFuncion = this.funciones[0];
     this.paisService.searchPais('')
     .subscribe(paises =>{
-      this.paises= paises
+      this.paises = paises
     });
   }
 
@@ -53,8 +50,6 @@ export class PorPaisPaginaComponent {
     console.log(this.select);
 
   }
-
-
   searchPaisById(term: string):void{
 
     this.paisService.searchPaisById(term)
@@ -66,7 +61,6 @@ export class PorPaisPaginaComponent {
       console.log(ms);
     });
   }
-
   // Hace un fill al formulario
   updatePais($event: any){
     this.p = $event;
@@ -77,7 +71,7 @@ export class PorPaisPaginaComponent {
   // Hace el put
   updatePais2($event: any){
     this.p = $event;
-    if (this.p?.IdPais != undefined){
+    if (this.p?.idPais != undefined){
       this.paisService.updatePais(this.p)
         .subscribe(data =>{
           console.log(data)
@@ -91,8 +85,8 @@ export class PorPaisPaginaComponent {
   deletePais($event: any){
     this.p = $event
     console.log(this.p);
-    if (this.p?.IdPais != undefined){
-      this.paisService.deletePais(this.p.IdPais)
+    if (this.p?.idPais!= undefined){
+      this.paisService.deletePais(this.p.idPais)
         .subscribe(s =>{
           this.refreshTable();
         });
