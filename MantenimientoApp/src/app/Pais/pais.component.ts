@@ -85,7 +85,7 @@ export class PaisComponent {
   deletePais($event: any){
     this.p = $event
     console.log(this.p);
-    if (this.p?.idPais!= undefined){
+    if (this.p?.idPais != undefined){
       this.paisService.deletePais(this.p.idPais)
         .subscribe(s =>{
           this.refreshTable();
